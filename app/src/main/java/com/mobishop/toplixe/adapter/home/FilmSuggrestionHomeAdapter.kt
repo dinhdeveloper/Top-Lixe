@@ -1,4 +1,4 @@
-package com.mobishop.toplixe.adapter.film
+package com.mobishop.toplixe.adapter.home
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,35 +9,37 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mobishop.toplixe.R
+import com.mobishop.toplixe.adapter.film.FilmSuggestionAdapter
 import com.mobishop.toplixe.common.CountTime
 import com.mobishop.toplixe.model.film.FilmEntityModel
 
-class FilmHasPageAdapter(
+class FilmSuggrestionHomeAdapter(
     private val context: Context?,
-    private val filmList: List<FilmEntityModel>,
+    private val listFilm: List<FilmEntityModel>,
     private val itemClick: (FilmEntityModel) -> Unit
-) : RecyclerView.Adapter<FilmHasPageAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<FilmSuggrestionHomeAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view =
-            LayoutInflater.from(context).inflate(R.layout.custom_film_has_page, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.custom_item_film_load_more, parent, false)
         return ViewHolder(view,itemClick)
     }
 
     override fun getItemCount(): Int {
-        return filmList.size
+        return if (listFilm.size > 4) {
+            9
+        } else {
+            listFilm.size
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (context != null) {
-            Glide.with(context).load(filmList[position].filmEntity?.img).error(R.drawable.empty)
+            Glide.with(context).load(R.drawable.bontram).error(R.drawable.empty)
                 .into(holder.imageFilm!!)
-            holder.txtName?.text = filmList[position].filmEntity?.filmname
-            holder.textDes?.text = filmList[position].filmEntity?.info
-            holder.textView?.text = "1249 lượt xem"
-            var countTime : CountTime = CountTime()
-            holder.time?.text = countTime.countTime(filmList[position].filmEntity?.length!!.toDouble())
+            holder.nameFilm?.text = listFilm[position].filmEntity?.filmname
+            holder.countryName?.text = listFilm[position].filmEntity?.country
         }
     }
 
@@ -46,13 +48,11 @@ class FilmHasPageAdapter(
         private val itemClick: (FilmEntityModel) -> Unit
     ) : RecyclerView.ViewHolder(item) {
         var imageFilm: ImageView? = itemView?.findViewById(R.id.imageFilm)
-        var txtName: TextView? = itemView?.findViewById(R.id.txtName)
-        var textDes: TextView? = itemView?.findViewById(R.id.textDes)
-        var textView: TextView? = itemView?.findViewById(R.id.view)
-        var time: TextView? = itemView?.findViewById(R.id.time)
+        var nameFilm: TextView? = itemView?.findViewById(R.id.nameFilm)
+        var countryName: TextView? = itemView?.findViewById(R.id.countryName)
         init {
             itemView?.setOnClickListener {
-                itemClick?.invoke(filmList[adapterPosition])
+                itemClick?.invoke(listFilm[adapterPosition])
             }
         }
     }

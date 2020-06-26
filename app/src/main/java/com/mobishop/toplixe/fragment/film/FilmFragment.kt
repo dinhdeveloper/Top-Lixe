@@ -67,6 +67,9 @@ class FilmFragment : Fragment() {
             shimmer_view_product?.stopShimmer()
             shimmer_view_product?.visibility = View.GONE
         })
+//        film_hot_more.setOnClickListener {
+//
+//        }
     }
     private fun callGoiYChoBan(){
         filmSuggestionViewModel = ViewModelProviders.of(this).get(FilmSuggestionViewModel::class.java)
@@ -75,7 +78,9 @@ class FilmFragment : Fragment() {
             rc_listSuggest.layoutManager =
                 GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
             rc_listSuggest.adapter = FilmSuggestionAdapter(context, it, itemClick = {
-
+                val intent = Intent(context, FilmDetailActivity::class.java)
+                intent.putExtra("FILM", it)
+                startActivity(intent)
             })
             filmSugAdapter?.notifyDataSetChanged()
         })
@@ -100,12 +105,19 @@ class FilmFragment : Fragment() {
             rc_listFilm.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             rc_listFilm.adapter = FilmHasPageAdapter(context, it, itemClick = {
-
+                val intent = Intent(context, FilmDetailActivity::class.java)
+                intent.putExtra("FILM", it)
+                startActivity(intent)
             })
             //them duong ke ơ giữa
             val dividerHorizontal =
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-
+            context?.resources?.getDrawable(R.drawable.custom_line_rc)?.let { it1 ->
+                dividerHorizontal.setDrawable(
+                    it1
+                )
+            }
+            rc_listFilm.addItemDecoration(dividerHorizontal)
             filmHasAdapter?.notifyDataSetChanged()
         })
     }

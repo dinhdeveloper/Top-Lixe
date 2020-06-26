@@ -1,7 +1,6 @@
 package com.mobishop.toplixe.adapter.home
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,7 @@ class SongHomeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view =
-            LayoutInflater.from(context).inflate(R.layout.custom_item_film_new_home, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.custom_item_song_home, parent, false)
         return ViewHolder(view, itemClick)
     }
 

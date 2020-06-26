@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mobishop.toplixe.R
+import com.mobishop.toplixe.common.CountTime
 import com.mobishop.toplixe.model.film.FilmEntityModel
 
 class FilmSuggestionAdapter(
@@ -34,9 +35,11 @@ class FilmSuggestionAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (context != null) {
-            Glide.with(context).load(listFilm[position].filmEntity?.img)
+            Glide.with(context).load(listFilm[position].filmEntity?.img).error(R.drawable.empty)
                 .into(holder.imgItemFilm!!)
             holder.txtNameFilm?.text = listFilm[position].filmEntity?.filmname
+            var countTime : CountTime = CountTime()
+            holder.time?.text = countTime.countTime(listFilm[position].filmEntity?.length!!.toDouble())
         }
     }
 
@@ -46,6 +49,7 @@ class FilmSuggestionAdapter(
     ) : RecyclerView.ViewHolder(item) {
         var imgItemFilm: ImageView? = itemView?.findViewById(R.id.imgItemFilm)
         var txtNameFilm: TextView? = itemView?.findViewById(R.id.txtNameFilm)
+        var time: TextView? = itemView?.findViewById(R.id.time)
         init {
             itemView?.setOnClickListener {
                 itemClick?.invoke(listFilm[adapterPosition])

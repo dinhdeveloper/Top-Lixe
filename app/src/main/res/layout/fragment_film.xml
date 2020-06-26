@@ -130,10 +130,18 @@
                             android:paddingBottom="10dp"
                             android:text="Hot Nhất Trong Tuần"
                             android:layout_marginLeft="5dp"
-                            android:textColor="@color/blacktest"
+                            android:textColor="@color/whileColor"
                             android:textSize="15dp"
-                            android:textAllCaps="false"
-                            android:textStyle="bold" />
+                            android:textAllCaps="false"/>
+                        <ImageView
+                            android:id="@+id/film_hot_more"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="3dp"
+                            android:background="@drawable/custom_border_more"
+                            android:layout_gravity="bottom"
+                            android:src="@drawable/ic_right_24"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"/>
 
                     </LinearLayout>
 
@@ -182,9 +190,16 @@
                             android:paddingTop="5dp"
                             android:paddingBottom="5dp"
                             android:text="Gợi Ý Cho Bạn"
-                            android:textColor="@color/blacktest"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/whileColor"
+                            android:textSize="15dp"/>
+                        <ImageView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="3dp"
+                            android:background="@drawable/custom_border_more"
+                            android:layout_gravity="bottom"
+                            android:src="@drawable/ic_right_24"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -229,9 +244,16 @@
                             android:paddingTop="5dp"
                             android:paddingBottom="5dp"
                             android:text="Diễn Viên Nổi Tiếng"
-                            android:textColor="@color/blacktest"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/whileColor"
+                            android:textSize="15dp"/>
+                        <ImageView
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="3dp"
+                            android:background="@drawable/custom_border_more"
+                            android:layout_gravity="bottom"
+                            android:src="@drawable/ic_right_24"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -263,9 +285,16 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:text="Gợi Ý Cho Bạn"
-                    android:textColor="@color/blacktest"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/whileColor"
+                    android:textSize="15dp"/>
+<!--                <ImageView-->
+<!--                    android:layout_marginBottom="5dp"-->
+<!--                    android:layout_marginRight="3dp"-->
+<!--                    android:background="@drawable/custom_border_more"-->
+<!--                    android:layout_gravity="bottom"-->
+<!--                    android:src="@drawable/ic_right_24"-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"/>-->
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView

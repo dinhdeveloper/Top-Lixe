@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mobishop.toplixe.R
+import com.mobishop.toplixe.common.CountTime
 import com.mobishop.toplixe.model.film.FilmEntityModel
 
 class FilmHotAdapter(
@@ -29,15 +30,12 @@ class FilmHotAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (context != null) {
-            Glide.with(context).load(listFilmHot[position].filmEntity?.img)
+            Glide.with(context).load(listFilmHot[position].filmEntity?.img).error(R.drawable.empty)
                 .into(holder.imgItemFilm!!)
             holder.txtNameFilm?.text = listFilmHot[position].filmEntity?.filmname
-//            if (listFilmHot[position].actorEntityList!!.isNotEmpty()) {
-//                holder.txtAd?.text = listFilmHot[position].actorEntityList?.get(position)?.actorname
-//            }
-//            if (listFilmHot[position].actorEntityList!!.isEmpty()) {
-//                holder.txtAd?.text = null
-//            }
+            var countTime : CountTime = CountTime()
+            holder.time?.text = countTime.countTime(listFilmHot[position].filmEntity?.length!!.toDouble())
+
         }
     }
 
@@ -48,6 +46,7 @@ class FilmHotAdapter(
         var imgItemFilm: ImageView? = itemView?.findViewById(R.id.imgItemFilm)
         var txtNameFilm: TextView? = itemView?.findViewById(R.id.txtNameFilm)
         var txtAd: TextView? = itemView?.findViewById(R.id.txtAd)
+        var time: TextView? = itemView?.findViewById(R.id.time)
 
         init {
             itemView?.setOnClickListener {

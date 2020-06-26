@@ -31,7 +31,7 @@ class FilmActorAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (context != null) {
-            Glide.with(context).load(actorList[position].imageEntity?.path)
+            Glide.with(context).load(actorList[position].imageEntity?.path).error(R.drawable.empty)
                 .into(holder.imgItem!!)
             holder.txtAd?.text = actorList[position].actorEntity?.actorname
 //            holder.txt?.text = actorList[position].filmDTOList?.get(position)?.filmEntity?.filmname

@@ -1,5 +1,6 @@
 package com.mobishop.toplixe.fragment.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,12 +12,15 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobishop.toplixe.R
-import com.mobishop.toplixe.adapter.home.FilmNewHomeAdapter
-import com.mobishop.toplixe.adapter.home.SongHomeAdapter
-import com.mobishop.toplixe.adapter.home.SongRandomHomeAdapter
+import com.mobishop.toplixe.activity.FilmDetailActivity
+import com.mobishop.toplixe.adapter.film.FilmSuggestionAdapter
+import com.mobishop.toplixe.adapter.home.*
+import com.mobishop.toplixe.viewmodel.fragment.film.FilmSuggestionViewModel
+import com.mobishop.toplixe.viewmodel.fragment.home.*
 import com.mobishop.toplixe.viewmodel.fragment.home.FilmNewHomeViewModel
 import com.mobishop.toplixe.viewmodel.fragment.home.FragmentHomeViewModel
 import com.mobishop.toplixe.viewmodel.fragment.home.SongRandomHomeViewModel
+import kotlinx.android.synthetic.main.fragment_film.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -30,6 +34,12 @@ class HomeFragment : Fragment() {
     private var songRandomHomeViewModel: SongRandomHomeViewModel? = null
     private var songRandomHomeAdapter: SongRandomHomeAdapter? = null
 
+    private var filmSuggestionVM : FilmSuggestionHomeViewModel? = null
+    private var filmSugAdapters : FilmSuggrestionHomeAdapter? = null
+
+    private var songSuggestionVM : SongSuggresstionHomeViewModel? = null
+    private var songSongRandomHomeAdapter : SongSuggressHomeAdapter?=null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +50,8 @@ class HomeFragment : Fragment() {
         loadSongRandom()
         loadSongHome()
         loadFilmNewHome()
+        loadFilmSugges()
+        loadSongSuggress()
         return view;
     }
 
@@ -75,6 +87,32 @@ class HomeFragment : Fragment() {
                 Toast.makeText(context, "${it.filmEntity?.img}", Toast.LENGTH_LONG).show()
             })
             filmNewHomeAdapter?.notifyDataSetChanged()
+        })
+    }
+
+    private fun loadFilmSugges(){
+        filmSuggestionVM = ViewModelProviders.of(this).get(FilmSuggestionHomeViewModel::class.java)
+        filmSuggestionVM!!.getData()?.observe(this, Observer {
+            card_film_goiy.visibility =View.VISIBLE
+            rc_film_goiy.layoutManager =
+                GridLayoutManager(activity, 3)
+            rc_film_goiy.adapter = FilmSuggrestionHomeAdapter(context, it, itemClick = {
+                val intent = Intent(context, FilmDetailActivity::class.java)
+                intent.putExtra("FILM", it)
+                startActivity(intent)
+            })
+            filmSugAdapters?.notifyDataSetChanged()
+        })
+    }
+    private fun loadSongSuggress(){
+        songSuggestionVM = ViewModelProviders.of(this).get(SongSuggresstionHomeViewModel::class.java)
+        songSuggestionVM!!.getData()?.observe(this, Observer {
+            card_song_goiy.visibility =View.VISIBLE
+            rc_song_goiy.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            rc_song_goiy.adapter = SongSuggressHomeAdapter(context, it, itemClick = {
+                Toast.makeText(context, "${it.songEntity?.img}", Toast.LENGTH_LONG).show()
+            })
+            songSongRandomHomeAdapter?.notifyDataSetChanged()
         })
     }
 }

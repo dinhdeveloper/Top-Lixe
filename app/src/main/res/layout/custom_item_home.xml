@@ -12,7 +12,7 @@
         android:src="@color/whileColor"
         android:layout_width="115dp"
         android:layout_height="145dp"
-        android:scaleType="center" />
+        android:scaleType="centerInside" />
 
     <TextView
         android:id="@+id/txtName"

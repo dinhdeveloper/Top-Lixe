@@ -8,7 +8,11 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".activity.FilmDetailActivity">
-
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingBottom="5dp"/>
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollable"
         android:layout_width="match_parent"
@@ -17,10 +21,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <cn.jzvd.JZVideoPlayerStandard
-                android:id="@+id/videoplayer"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"/>
 
             <LinearLayout
                 android:orientation="vertical"
