@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/imageFilm"
-            android:layout_width="110dp"
-            android:layout_height="110dp"/>
+            android:layout_width="220px"
+            android:layout_height="220px"/>
 
         <ImageView
             android:layout_margin="10dp"

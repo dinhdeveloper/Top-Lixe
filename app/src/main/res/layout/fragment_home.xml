@@ -88,7 +88,8 @@
                 android:background="@color/blacktwo"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:paddingHorizontal="10dp"
@@ -122,7 +123,8 @@
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -147,7 +149,8 @@
                 android:background="@color/blacktwo"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:paddingHorizontal="10dp"
@@ -181,7 +184,8 @@
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -201,7 +205,8 @@
                 android:background="@color/blacktwo"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:paddingHorizontal="10dp"
@@ -235,7 +240,8 @@
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -261,7 +267,8 @@
                 android:background="@color/blacktwo"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:paddingHorizontal="10dp"
@@ -295,7 +302,8 @@
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -321,7 +329,8 @@
                 android:background="@color/blacktwo"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:paddingHorizontal="10dp"
@@ -381,7 +390,8 @@
                 android:background="@color/blacktwo"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:paddingHorizontal="10dp"
@@ -404,7 +414,7 @@
                             android:layout_weight="1"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
-                            android:text="Phim Gợi Ý"
+                            android:text="Nhạc Gợi Ý"
                             android:layout_marginLeft="5dp"
                             android:textColor="@color/whileColor"
                             android:textSize="15dp" />

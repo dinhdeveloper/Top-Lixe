@@ -48,7 +48,7 @@ class SongSuggressHomeAdapter (
             Glide.with(context).load(songList[position].songEntity?.img)
                 .into(holder.imageSong!!)
             holder.nameSong?.text = songList[position].songEntity.songname
-            if (songList[position].singerEntityList !=null){
+            if (songList[position].singerEntityList.isNotEmpty()){
                 holder.singerName?.text = songList[position].singerEntityList[0].singername
             }
             else{

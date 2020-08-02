@@ -19,7 +19,8 @@
         android:orientation="vertical"
         app:shimmer_duration="800"
         android:visibility="visible"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:visibility="gone">
 
         <!-- 3 rows added as a placeholders -->
         <LinearLayout
@@ -135,13 +136,15 @@
                             android:textAllCaps="false"/>
                         <ImageView
                             android:id="@+id/film_hot_more"
+                            android:padding="5dp"
                             android:layout_marginBottom="5dp"
                             android:layout_marginRight="3dp"
                             android:background="@drawable/custom_border_more"
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
 
                     </LinearLayout>
 
@@ -189,17 +192,19 @@
                             android:paddingLeft="5dp"
                             android:paddingTop="5dp"
                             android:paddingBottom="5dp"
-                            android:text="Gợi Ý Cho Bạn"
+                            android:text="Top phim"
                             android:textColor="@color/whileColor"
                             android:textSize="15dp"/>
                         <ImageView
+                            android:id="@+id/film_more"
                             android:layout_marginBottom="5dp"
                             android:layout_marginRight="3dp"
                             android:background="@drawable/custom_border_more"
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -223,6 +228,7 @@
                 app:cardElevation="5dp">
 
                 <LinearLayout
+                    android:id="@+id/layoutFilm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/blacktwo"
@@ -253,7 +259,8 @@
                             android:layout_gravity="bottom"
                             android:src="@drawable/ic_right_24"
                             android:layout_width="16dp"
-                            android:layout_height="16dp"/>
+                            android:layout_height="16dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView

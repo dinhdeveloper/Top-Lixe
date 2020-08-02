@@ -2,24 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainActivity"
     android:background="@color/hinhnen"
     tools:context=".activity.HomeActivity">
 
+<!--    <include layout="@layout/fragment_item_song"/>-->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navBottom"
-        app:backgroundTint="@color/hinhnen"
+        style="@style/BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
+        android:background="@drawable/custom_bg_nav_bottom_main"
         android:isScrollContainer="true"
+        app:backgroundTint="@color/hinhnen"
         app:itemIconTint="@color/blackfive"
         app:itemTextColor="@color/blackfive"
-        android:background="@drawable/custom_bg_nav_bottom_main"
-        app:menu="@menu/menu_main"
-        style="@style/BottomNavigationView"/>
+        app:menu="@menu/menu_main" />
 
 </RelativeLayout>

@@ -2,25 +2,19 @@ package com.mobishop.toplixe.fragment.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobishop.toplixe.R
 import com.mobishop.toplixe.activity.FilmDetailActivity
-import com.mobishop.toplixe.adapter.film.FilmSuggestionAdapter
+import com.mobishop.toplixe.activity.SongDetailActivity
 import com.mobishop.toplixe.adapter.home.*
-import com.mobishop.toplixe.viewmodel.fragment.film.FilmSuggestionViewModel
 import com.mobishop.toplixe.viewmodel.fragment.home.*
-import com.mobishop.toplixe.viewmodel.fragment.home.FilmNewHomeViewModel
-import com.mobishop.toplixe.viewmodel.fragment.home.FragmentHomeViewModel
-import com.mobishop.toplixe.viewmodel.fragment.home.SongRandomHomeViewModel
-import kotlinx.android.synthetic.main.fragment_film.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -52,8 +46,10 @@ class HomeFragment : Fragment() {
         loadFilmNewHome()
         loadFilmSugges()
         loadSongSuggress()
-        return view;
+        
+        return view
     }
+
 
     private fun loadSongRandom(){
         songRandomHomeViewModel = ViewModelProviders.of(this).get(SongRandomHomeViewModel::class.java)
@@ -61,7 +57,12 @@ class HomeFragment : Fragment() {
             card_nghegi.visibility =View.VISIBLE
             rc_songrandom.layoutManager = GridLayoutManager(context,3)
             rc_songrandom.adapter = SongRandomHomeAdapter(context, it, itemClick = {
-                Toast.makeText(context, "${it.songEntity?.img}", Toast.LENGTH_LONG).show()
+                val intent =
+                    Intent(this.context, SongDetailActivity::class.java)
+                intent.putExtra("DETAIL",it)
+                intent.flags =
+                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
             })
             songRandomHomeAdapter?.notifyDataSetChanged()
         })
@@ -73,7 +74,11 @@ class HomeFragment : Fragment() {
             card_musicrank.visibility =View.VISIBLE
             rc_musicrank.layoutManager = GridLayoutManager(context,3)
             rc_musicrank.adapter = SongHomeAdapter(context, it, itemClick = {
-                Toast.makeText(context, "${it.songEntity?.img}", Toast.LENGTH_LONG).show()
+                val intent =
+                    Intent(this.context, SongDetailActivity::class.java)
+                intent.putExtra("DETAIL",it)
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
             })
             songHomeAdapter?.notifyDataSetChanged()
         })
@@ -84,7 +89,10 @@ class HomeFragment : Fragment() {
             card_filmnew.visibility =View.VISIBLE
             rc_filmnew.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
             rc_filmnew.adapter = FilmNewHomeAdapter(context, it, itemClick = {
-                Toast.makeText(context, "${it.filmEntity?.img}", Toast.LENGTH_LONG).show()
+                val intent =
+                    Intent(this.context, FilmDetailActivity::class.java)
+                intent.putExtra("FILM",it)
+                startActivity(intent)
             })
             filmNewHomeAdapter?.notifyDataSetChanged()
         })
@@ -110,7 +118,10 @@ class HomeFragment : Fragment() {
             card_song_goiy.visibility =View.VISIBLE
             rc_song_goiy.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             rc_song_goiy.adapter = SongSuggressHomeAdapter(context, it, itemClick = {
-                Toast.makeText(context, "${it.songEntity?.img}", Toast.LENGTH_LONG).show()
+                val intent =
+                    Intent(this.context, SongDetailActivity::class.java)
+                intent.putExtra("DETAIL",it)
+                startActivity(intent)
             })
             songSongRandomHomeAdapter?.notifyDataSetChanged()
         })

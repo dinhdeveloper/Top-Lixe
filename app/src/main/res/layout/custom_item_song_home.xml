@@ -12,8 +12,9 @@
 
         <ImageView
             android:id="@+id/imageSong"
-            android:layout_width="110dp"
-            android:layout_height="110dp"/>
+            android:scaleType="centerCrop"
+            android:layout_width="220px"
+            android:layout_height="220px"/>
 
         <ImageView
             android:layout_margin="5dp"

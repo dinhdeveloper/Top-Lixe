@@ -18,9 +18,27 @@
         android:paddingRight="15dp"
         android:paddingBottom="10dp"
         app:theme="@style/ToolBars"
-        app:title="Thêm địa chỉ mới"
         app:titleTextAppearance="@style/Toolbar.TitleText"
-        app:titleTextColor="@color/whileColor" />
+        app:titleTextColor="@color/whileColor">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Danh Sách Phim"
+                android:textColor="@color/whileColor"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

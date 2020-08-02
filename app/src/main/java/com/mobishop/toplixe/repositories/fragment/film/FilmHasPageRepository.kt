@@ -14,7 +14,7 @@ class FilmHasPageRepository {
     fun dataApi(): MutableLiveData<List<FilmEntityModel>> {
         val data: MutableLiveData<List<FilmEntityModel>> = MutableLiveData<List<FilmEntityModel>>()
         apiService = APIUntil.server
-        apiService!!.getHasPageFilm(10,0).enqueue(object : retrofit2.Callback<List<FilmEntityModel>> {
+        apiService!!.getHasPageFilm(20,0).enqueue(object : retrofit2.Callback<List<FilmEntityModel>> {
             override fun onFailure(call: Call<List<FilmEntityModel>>, t: Throwable) {
                 Log.e("onFailure", "${t.message}")
             }

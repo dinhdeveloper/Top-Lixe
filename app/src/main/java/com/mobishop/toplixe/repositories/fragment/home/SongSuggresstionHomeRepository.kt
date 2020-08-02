@@ -15,7 +15,7 @@ class SongSuggresstionHomeRepository {
     fun dataAPI(): MutableLiveData<List<SongEntityModel>> {
         val data: MutableLiveData<List<SongEntityModel>> = MutableLiveData<List<SongEntityModel>>()
         apiInterfaceInterface = APIUntil.server
-        apiInterfaceInterface!!.getSongRandom()
+        apiInterfaceInterface!!.getSongPage(100,0)
             .enqueue(object : retrofit2.Callback<List<SongEntityModel>> {
                 override fun onFailure(call: Call<List<SongEntityModel>>, t: Throwable) {
                     Log.e("onFailure", t.message)

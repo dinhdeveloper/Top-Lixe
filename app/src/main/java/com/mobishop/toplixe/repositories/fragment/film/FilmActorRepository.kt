@@ -14,7 +14,7 @@ class FilmActorRepository {
     fun dataApi(): MutableLiveData<List<ActorEntityModel>> {
         val data: MutableLiveData<List<ActorEntityModel>> = MutableLiveData<List<ActorEntityModel>>()
         apiService = APIUntil.server
-        apiService!!.getActor(5,0).enqueue(object : retrofit2.Callback<List<ActorEntityModel>> {
+        apiService!!.getActor(10,0).enqueue(object : retrofit2.Callback<List<ActorEntityModel>> {
             override fun onFailure(call: Call<List<ActorEntityModel>>, t: Throwable) {
                 Log.e("onFailure", "${t.message}")
             }

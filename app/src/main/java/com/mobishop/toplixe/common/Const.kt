@@ -7,5 +7,6 @@ import kotlin.math.floor
 class Const  {
     companion object{
         var doubleBackToExitPressed: Boolean = false
+        var HOST_MUSIC = "http://115.73.214.162:8888";
     }
 }

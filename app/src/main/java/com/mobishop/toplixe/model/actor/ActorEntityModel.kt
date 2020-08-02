@@ -1,15 +1,17 @@
 package com.mobishop.toplixe.model.actor
 
+import java.io.Serializable
+
 data class ActorEntityModel(
     var actorEntity: ActorEntity?,
     var filmDTOList: List<FilmDTO?>?,
     var imageEntity: ImageEntity?
-) {
+) : Serializable {
     data class ActorEntity(
         var actorname: String?,
         var ext: String?,
         var id: Int?
-    )
+    ) : Serializable
 
     data class FilmDTO(
         var actorEntityList: List<ActorEntity?>?,
@@ -19,18 +21,18 @@ data class ActorEntityModel(
         var imageEntity: List<Any?>?,
         var seriCategoryFilmEntity: Any?,
         var uploadEntityList: List<Any?>?
-    ) {
+    ) : Serializable {
         data class ActorEntity(
             var actorname: String?,
             var ext: String?,
             var id: Int?
-        )
+        ) : Serializable
 
         data class DirectorEntity(
             var ext: String?,
             var id: Int?,
             var name: String?
-        )
+        ) : Serializable
 
         data class FilmEntity(
             var active: Boolean?,
@@ -47,7 +49,7 @@ data class ActorEntityModel(
             var range: Int?,
             var uploadsource: String?,
             var yearreleased: Int?
-        )
+        ) : Serializable
     }
 
     data class ImageEntity(
@@ -57,5 +59,5 @@ data class ActorEntityModel(
         var model: String?,
         var path: String?,
         var size: Any?
-    )
+    ) : Serializable
 }

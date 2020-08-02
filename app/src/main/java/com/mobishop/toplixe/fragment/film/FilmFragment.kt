@@ -2,6 +2,7 @@ package com.mobishop.toplixe.fragment.film
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +14,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobishop.toplixe.R
 import com.mobishop.toplixe.activity.FilmDetailActivity
+import com.mobishop.toplixe.activity.HomeActivity
+import com.mobishop.toplixe.activity.ListFilmMoreActivity
 import com.mobishop.toplixe.adapter.film.FilmActorAdapter
 import com.mobishop.toplixe.adapter.film.FilmHasPageAdapter
 import com.mobishop.toplixe.adapter.film.FilmHotAdapter
 import com.mobishop.toplixe.adapter.film.FilmSuggestionAdapter
+import com.mobishop.toplixe.fragment.actor.ActorActivity
 import com.mobishop.toplixe.viewmodel.fragment.film.FilmActorViewModel
 import com.mobishop.toplixe.viewmodel.fragment.film.FilmHasPageViewModel
 import com.mobishop.toplixe.viewmodel.fragment.film.FilmHotViewModel
@@ -67,9 +71,10 @@ class FilmFragment : Fragment() {
             shimmer_view_product?.stopShimmer()
             shimmer_view_product?.visibility = View.GONE
         })
-//        film_hot_more.setOnClickListener {
-//
-//        }
+        film_hot_more?.setOnClickListener {
+            var intent = Intent(activity, ListFilmMoreActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun callGoiYChoBan(){
         filmSuggestionViewModel = ViewModelProviders.of(this).get(FilmSuggestionViewModel::class.java)
@@ -93,7 +98,9 @@ class FilmFragment : Fragment() {
             rc_actor.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             rc_actor.adapter = FilmActorAdapter(context, it, itemClick = {
-
+                val intent = Intent(context, ActorActivity::class.java)
+                intent.putExtra("Actor",it)
+               startActivity(intent)
             })
             filmActorAdapter?.notifyDataSetChanged()
         })
